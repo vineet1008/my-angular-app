@@ -7,6 +7,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+
+import { AddUserDialogComponent } from '../add-user-dialog/add-user-dialog.component';
 
 @Component({
   selector: 'app-users',
@@ -19,7 +22,8 @@ import { RouterLink } from '@angular/router';
     MatButtonModule,
     MatCardModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule
   ],
   templateUrl: './users.component.html',
   styleUrl: './users.component.scss'
@@ -34,4 +38,19 @@ export class UsersComponent {
     { name: 'Aman Singh', email: 'aman@example.com', role: 'DevOps Engineer', status: 'Inactive' },
     { name: 'Sneha Kapoor', email: 'sneha@example.com', role: 'UI Developer', status: 'Active' }
   ];
+
+  constructor(private dialog: MatDialog) {}
+
+  openAddUserDialog() {
+    const dialogRef = this.dialog.open(AddUserDialogComponent, {
+      width: '500px',
+      panelClass: 'custom-dialog-container'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.users = [...this.users, result];
+      }
+    });
+  }
 }
