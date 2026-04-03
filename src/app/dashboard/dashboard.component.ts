@@ -10,6 +10,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -24,8 +25,9 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatListModule,
     MatTableModule,
-    MatInputModule
-  ],
+    MatInputModule,
+    RouterLink
+],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })
