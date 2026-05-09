@@ -49,25 +49,15 @@ export class UsersComponent {
   ngOnInit(): void {
        if (isPlatformBrowser(this.platformId)) {
 
-    console.log('Browser Call');
+    // console.log('Browser Call');
 
     this.getUsers();
   }
 }
 
 getUsers() {
- let token = '';
 
-  if (isPlatformBrowser(this.platformId)) {
-    token = localStorage.getItem('token') || '';
-  }
-  console.log('TOKEN:', token);
-
-const headers = {
-  Authorization: `Bearer ${token}`
-};
-
-  this.http.get<any[]>('http://localhost:8080/api/users',{headers})
+  this.http.get<any[]>('http://localhost:8080/api/users')
     .subscribe({
 
       next: (response) => {
