@@ -47,7 +47,12 @@ export class UsersComponent {
    users: any[] = [];
 
   ngOnInit(): void {
-  this.getUsers();
+       if (isPlatformBrowser(this.platformId)) {
+
+    console.log('Browser Call');
+
+    this.getUsers();
+  }
 }
 
 getUsers() {
