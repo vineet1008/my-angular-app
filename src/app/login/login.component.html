@@ -10,15 +10,15 @@
 
       <!-- Email -->
       <mat-form-field appearance="outline" class="full-width">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email" type="email" placeholder="Enter your email" />
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" type="username" placeholder="Enter your username" />
 
-        <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
-          Email is required
+        <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
+          username is required
         </mat-error>
 
-        <mat-error *ngIf="loginForm.get('email')?.hasError('email')">
-          Please enter a valid email
+        <mat-error *ngIf="loginForm.get('username')?.hasError('email')">
+          Please enter a valid username
         </mat-error>
       </mat-form-field>
 

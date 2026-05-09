@@ -10,7 +10,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from "@angular/router";
+import { Router, RouterLink } from "@angular/router";
+
 
 @Component({
   selector: 'app-dashboard',
@@ -33,11 +34,23 @@ import { RouterLink } from "@angular/router";
 })
 export class DashboardComponent {
   displayedColumns: string[] = ['name', 'role', 'status'];
-
+constructor(private router: Router
+  ) {}
   users = [
     { name: 'Vineet Gupta', role: 'Java Developer', status: 'Active' },
     { name: 'Rahul Sharma', role: 'Angular Developer', status: 'Pending' },
     { name: 'Priya Verma', role: 'QA Engineer', status: 'Active' },
     { name: 'Aman Singh', role: 'DevOps Engineer', status: 'Inactive' }
   ];
+
+
+  logout(){
+    // Remove JWT token
+  localStorage.removeItem('token');
+  // Optional
+  localStorage.clear();
+
+  // Redirect to login
+  this.router.navigate(['/login']);
+  }
 }
