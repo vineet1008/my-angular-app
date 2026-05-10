@@ -12,23 +12,40 @@
       <mat-label>Full Name</mat-label>
       <input matInput formControlName="name" placeholder="Enter full name" />
     </mat-form-field>
+     <mat-form-field appearance="outline" class="full-width">
+      <mat-label>username</mat-label>
+      <input matInput formControlName="username" type="username" placeholder="Enter username" />
+    </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" type="email" placeholder="Enter email" />
     </mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Address</mat-label>
+      <input matInput formControlName="address" type="address" placeholder="Enter address" />
+    </mat-form-field>
+     <mat-form-field appearance="outline" class="full-width">
+      <mat-label>mobile Number</mat-label>
+      <input matInput formControlName="mobile_number" type="mobile_number" placeholder="Enter mobile_number" />
+    </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
-      <mat-label>Role</mat-label>
-      <input matInput formControlName="role" placeholder="Enter role" />
+       <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+          <mat-option
+            *ngFor="let role of roles"
+            [value]="role.id">
+            {{ role.name }}
+          </mat-option>
+        </mat-select>
     </mat-form-field>
 
     <mat-form-field appearance="outline" class="full-width">
       <mat-label>Status</mat-label>
       <mat-select formControlName="status">
-        <mat-option value="Active">Active</mat-option>
-        <mat-option value="Pending">Pending</mat-option>
-        <mat-option value="Inactive">Inactive</mat-option>
+        <mat-option value="0">Active</mat-option>
+        <mat-option value="1">Inactive</mat-option>
       </mat-select>
     </mat-form-field>
 

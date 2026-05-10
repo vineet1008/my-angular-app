@@ -4,6 +4,27 @@
   color: white;
   border-radius: 20px;
   min-width: 420px;
+
+  /* ✅ Scroll support */
+  max-height: 85vh;
+  overflow-y: auto;
+
+  /* Smooth scrolling */
+  scroll-behavior: smooth;
+}
+
+/* Optional custom scrollbar */
+.dialog-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dialog-container::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 10px;
+}
+
+.dialog-container::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .dialog-header {
@@ -11,6 +32,14 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 20px;
+
+  /* ✅ Sticky header */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  background: #0f172a;
+  padding-bottom: 12px;
 
   h2 {
     margin: 0;
@@ -44,11 +73,32 @@
   color: #cbd5e1 !important;
 }
 
+/* Dropdown panel */
+::ng-deep .mat-mdc-select-panel {
+  background: #1e293b !important;
+  color: white !important;
+  border-radius: 12px !important;
+}
+
+::ng-deep .mat-mdc-option {
+  color: white !important;
+}
+
+::ng-deep .mat-mdc-option:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
 .dialog-actions {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
   margin-top: 10px;
+
+  /* ✅ Sticky footer */
+  position: sticky;
+  bottom: 0;
+  background: #0f172a;
+  padding-top: 16px;
 }
 
 .save-btn {
